@@ -212,11 +212,25 @@
                                 class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                <form class="contact-form"
+                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe40-gBCMD2Nr1AXL2Ca59IpaRBWP3edib9Jud4Qd-bVc2haA/formResponse"
+                    method="POST" novalidate>
+                    <input type="text" name="entry.1969004993" placeholder="Your Name" required>
+                    <input type="email" name="entry.230809009" placeholder="Your Email" required>
+                    <textarea name="entry.977138015" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn" id="submit-btn">Send Message</button>
+                    <div id="form-warning" class="form-status hidden">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Please fill in all required fields.</span>
+                    </div>
+                    <div id="form-success" class="form-status hidden">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Message sent successfully!</span>
+                    </div>
+                    <div id="form-error" class="form-status hidden">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Something went wrong. Please try again.</span>
+                    </div>
                 </form>
             </div>
         </div>

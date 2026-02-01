@@ -30,13 +30,77 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Simple Contact Form submission (Prevent default and alert)
+// Contact Form submission with AJAX and Confirmation
 const contactForm = document.querySelector('.contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const successMsg = document.getElementById('form-success');
+const warningMsg = document.getElementById('form-warning');
+const errorMsg = document.getElementById('form-error');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for reaching out! This form is for demonstration purposes.');
-        contactForm.reset();
+
+        // Manual validation check
+        if (!contactForm.checkValidity()) {
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            warningMsg.classList.remove('hidden');
+
+            // Shake effect for feedback
+            submitBtn.classList.add('shake');
+            setTimeout(() => submitBtn.classList.remove('shake'), 500);
+            return;
+        }
+
+        // Hide warning if valid
+        warningMsg.classList.add('hidden');
+
+        // Loading state
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.style.opacity = '0.7';
+        submitBtn.style.pointerEvents = 'none';
+
+        const formData = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        })
+            .then(() => {
+                // Success
+                contactForm.reset();
+                successMsg.classList.remove('hidden');
+                errorMsg.classList.add('hidden');
+                warningMsg.classList.add('hidden');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 5000);
+            })
+            .catch((error) => {
+                // Error
+                console.error('Submission error:', error);
+                errorMsg.classList.remove('hidden');
+                successMsg.classList.add('hidden');
+                warningMsg.classList.add('hidden');
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            });
+    });
+
+    // Hide status messages when user starts typing again
+    contactForm.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('input', () => {
+            warningMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+        });
     });
 }
 
