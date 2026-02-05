@@ -43,6 +43,23 @@ if (contactForm) {
 
         // Manual validation check
         if (!contactForm.checkValidity()) {
+            let message = "Please fill in all required fields.";
+
+            const nameInput = contactForm.querySelector('input[name="entry.1969004993"]');
+            const emailInput = contactForm.querySelector('input[name="entry.230809009"]');
+            const messageInput = contactForm.querySelector('textarea[name="entry.977138015"]');
+
+            if (nameInput && nameInput.value.trim() === "") {
+                message = "Please enter your name.";
+            } else if (emailInput && emailInput.value.trim() === "") {
+                message = "Please enter your email.";
+            } else if (emailInput && !emailInput.checkValidity()) {
+                message = "Please enter a valid email address.";
+            } else if (messageInput && messageInput.value.trim() === "") {
+                message = "Please enter your message.";
+            }
+
+            warningMsg.querySelector('span').textContent = message;
             successMsg.classList.add('hidden');
             errorMsg.classList.add('hidden');
             warningMsg.classList.remove('hidden');
