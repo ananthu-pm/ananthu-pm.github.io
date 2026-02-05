@@ -49,8 +49,12 @@ if (contactForm) {
             const emailInput = contactForm.querySelector('input[name="entry.230809009"]');
             const messageInput = contactForm.querySelector('textarea[name="entry.977138015"]');
 
+            const nameRegex = /^[a-zA-Z\s]+$/;
+
             if (nameInput && nameInput.value.trim() === "") {
                 message = "Please enter your name.";
+            } else if (nameInput && !nameRegex.test(nameInput.value.trim())) {
+                message = "Invalid name. (Use only letters and spaces)";
             } else if (emailInput && emailInput.value.trim() === "") {
                 message = "Please enter your email.";
             } else if (emailInput && !emailInput.checkValidity()) {
