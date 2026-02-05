@@ -36,6 +36,8 @@ const submitBtn = document.getElementById('submit-btn');
 const successMsg = document.getElementById('form-success');
 const warningMsg = document.getElementById('form-warning');
 const errorMsg = document.getElementById('form-error');
+const funnyOverlay = document.getElementById('funny-overlay');
+let errorCount = 0;
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -67,6 +69,12 @@ if (contactForm) {
             successMsg.classList.add('hidden');
             errorMsg.classList.add('hidden');
             warningMsg.classList.remove('hidden');
+
+            // Increment error count and check for funny overlay
+            errorCount++;
+            if (errorCount > 3) {
+                funnyOverlay.classList.remove('hidden');
+            }
 
             // Shake effect for feedback
             submitBtn.classList.add('shake');
@@ -123,6 +131,26 @@ if (contactForm) {
             errorMsg.classList.add('hidden');
         });
     });
+
+    // Reset error count on successful submission
+    contactForm.addEventListener('submit', (e) => {
+        if (contactForm.checkValidity()) {
+            errorCount = 0;
+        }
+    });
+}
+
+// Dismiss Funny Overlay
+if (funnyOverlay) {
+    const dismissOverlay = () => {
+        if (!funnyOverlay.classList.contains('hidden')) {
+            funnyOverlay.classList.add('hidden');
+            errorCount = 0;
+        }
+    };
+
+    window.addEventListener('click', dismissOverlay);
+    window.addEventListener('keydown', dismissOverlay);
 }
 
 // Custom Cursor Logic

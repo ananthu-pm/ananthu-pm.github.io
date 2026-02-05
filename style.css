@@ -843,3 +843,199 @@ footer i {
         display: none;
     }
 }
+
+/* Funny Warning Overlay Styles */
+.funny-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(15px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.funny-overlay.hidden {
+    display: none;
+}
+
+.funny-content {
+    max-width: 600px;
+    background: rgba(30, 41, 59, 0.8);
+    padding: 3rem;
+    border-radius: 30px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 50px rgba(244, 114, 182, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.fox-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.funny-content h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.funny-content p,
+.funny-list {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.funny-list {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+    margin: 1.5rem 0;
+}
+
+.funny-list li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.funny-list li::before {
+    content: '⚠️';
+    position: absolute;
+    left: 0;
+}
+
+.dismiss-hint {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.floating-emojis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-emojis span {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0.6;
+    animation: floatAround 10s infinite linear;
+}
+
+.floating-emojis span:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-emojis span:nth-child(2) {
+    top: 20%;
+    left: 80%;
+    animation-delay: -2s;
+}
+
+.floating-emojis span:nth-child(3) {
+    top: 70%;
+    left: 15%;
+    animation-delay: -4s;
+}
+
+.floating-emojis span:nth-child(4) {
+    top: 80%;
+    left: 75%;
+    animation-delay: -6s;
+}
+
+.floating-emojis span:nth-child(5) {
+    top: 40%;
+    left: 50%;
+    animation-delay: -8s;
+}
+
+.floating-emojis span:nth-child(6) {
+    top: 15%;
+    left: 40%;
+    animation-delay: -1s;
+}
+
+.floating-emojis span:nth-child(7) {
+    top: 30%;
+    left: 10%;
+    animation-delay: -3s;
+}
+
+.floating-emojis span:nth-child(8) {
+    top: 60%;
+    left: 90%;
+    animation-delay: -5s;
+}
+
+.floating-emojis span:nth-child(9) {
+    top: 90%;
+    left: 30%;
+    animation-delay: -7s;
+}
+
+.floating-emojis span:nth-child(10) {
+    top: 5%;
+    left: 60%;
+    animation-delay: -9s;
+}
+
+.floating-emojis span:nth-child(11) {
+    top: 45%;
+    left: 25%;
+    animation-delay: -1.5s;
+}
+
+.floating-emojis span:nth-child(12) {
+    top: 75%;
+    left: 55%;
+    animation-delay: -4.5s;
+}
+
+@keyframes floatAround {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(20deg);
+    }
+
+    66% {
+        transform: translate(-30px, 50px) rotate(-20deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
