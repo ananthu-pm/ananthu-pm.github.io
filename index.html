@@ -4,103 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ananthu PM | Portfolio</title>
+    <title>Ananthu PM | Industry 4.0 Specialist — AI, MES & Smart Manufacturing</title>
+    <meta name="description"
+        content="Ananthu PM — Industry 4.0 Specialist at L&T Electronic Products & Systems. Expert in MES, AI, Smart Manufacturing, Automation, and Digital Transformation.">
+    <meta name="keywords"
+        content="Industry 4.0, MES, AI Engineer, Smart Manufacturing, Digital Transformation, Automation, Ananthu PM">
+    <meta name="author" content="Ananthu PM">
     <link rel="icon" type="image/png" href="assets/ananthu.png">
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body class="dark">
-    <!-- Starfield Background -->
-    <div id="stars-container">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-        <div id="nebula"></div>
-        <div class="shooting-star"></div>
-        <div class="shooting-star"></div>
-        <div class="shooting-star"></div>
+<body class="loading">
+
+    <!-- ========== LOADING SCREEN ========== -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">ANANTHU PM</div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loading-bar"></div>
+        </div>
+        <div class="loading-text" id="loading-text">INITIALIZING SYSTEM</div>
     </div>
 
-    <!-- Custom Cursor -->
+    <!-- ========== BACKGROUND SYSTEM ========== -->
+    <canvas id="particle-canvas"></canvas>
+    <div class="grid-overlay"></div>
+    <div class="scanline"></div>
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+
+    <!-- ========== CUSTOM CURSOR ========== -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
+    <!-- ========== NAVIGATION ========== -->
+    <nav id="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#about" class="logo">
-                <img src="assets/ananthu.png" alt="Avatar" class="nav-avatar">
+            <a href="#about" class="logo" aria-label="Ananthu PM - About">
+                <img src="assets/ananthu.png" alt="Ananthu PM" class="nav-avatar">
                 Ananthu<span>PM</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#dashboard">Industry 4.0</a></li>
+                <li><a href="#tech">Tech</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Expertise</a></li>
+                <li><a href="#vision">Vision</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ========== HERO SECTION ========== -->
     <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h3>Hello, I'm</h3>
-            <h1>Ananthu PM</h1>
-            <p class="subtitle">Computer Science Graduate | MCA Candidate | AI Enthusiast</p>
+        <!-- AI Pulse Rings -->
+        <div class="ai-pulse-ring ai-pulse-ring-1"></div>
+        <div class="ai-pulse-ring ai-pulse-ring-2"></div>
+        <div class="ai-pulse-ring ai-pulse-ring-3"></div>
+
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <div class="hero-tag">
+                <span class="status-dot"></span>
+                <span>System Online — Ready to Deploy</span>
+            </div>
+            <h1><a href="#about" style="background:inherit;-webkit-background-clip:inherit;background-clip:inherit;-webkit-text-fill-color:inherit;text-decoration:none;">Ananthu PM</a></h1>
+            <p class="subtitle" id="typing-target"></p>
+            <p class="hero-description">
+                Industry 4.0 Specialist driving intelligent manufacturing transformation
+                using MES, AI, automation, and digital engineering technologies.
+            </p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/ananthupm/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ananthu-pm" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/r._m_.i/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ananthupm/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/ananthu-pm" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/r._m_.i/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="hero-btns">
-                <a href="#contact" class="btn">Let's Talk</a>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-satellite-dish"></i> <span>Let's Connect</span>
+                </a>
                 <a href="https://drive.google.com/uc?export=download&id=1MJlpbdmBAZVoNPOpzPfjYLXqOiXbI_pa"
-                    class="btn btn-outline" target="_blank"><i class="fas fa-download"></i> Download CV</a>
+                    class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-download"></i> <span>Download CV</span>
+                </a>
             </div>
         </div>
-        <div class="background-shape"></div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about">
         <div class="container" data-aos="fade-up">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-header">
+                <span class="section-tag">// System Profile</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
             <div class="about-grid">
-                <div class="about-img">
-                    <img src="assets/ananthu.png" alt="Ananthu PM">
+                <div class="about-img-wrapper">
+                    <div class="about-img">
+                        <img src="assets/ananthu.png" alt="Ananthu PM — Industry 4.0 Specialist">
+                    </div>
+                    <div class="system-badge">
+                        <i class="fas fa-microchip"></i> INDUSTRY 4.0 SPECIALIST
+                    </div>
                 </div>
                 <div class="about-text">
-                    <p>Enthusiastic and highly motivated Computer Science graduate seeking a challenging position to
-                        leverage my skills in prompt engineering, software development, problem-solving, and teamwork in
-                        a dynamic and growth-oriented organization.</p>
-                    <p>Currently pursuing Master of Computer Applications (MCA) at IGNOU, I have a strong foundation in
-                        Computer Science from the University of Kerala. I am passionate about AI, Deep Learning, and
-                        building technology that solves real-world problems.</p>
-                    <div class="info-lists">
-                        <div class="edu-info">
-                            <h3>Education</h3>
+                    <h3>Ananthu PM</h3>
+                    <div class="about-role">Industry 4.0 Specialist @ L&T Electronic Products &amp; Systems</div>
+                    <p>
+                        A driven Industry 4.0 Specialist with expertise in Manufacturing Execution Systems (MES),
+                        AI-powered analytics, and digital transformation of shop-floor operations.
+                        Currently spearheading smart manufacturing initiatives at L&T Electronic Products & Systems,
+                        bridging ERP systems to production floors and enabling real-time quality traceability
+                        across electronics manufacturing workflows.
+                    </p>
+                    <p>
+                        Pursuing a Master of Computer Applications (MCA) at IGNOU alongside professional
+                        responsibilities, with a strong foundation in Computer Science from the University of Kerala.
+                        Passionate about the convergence of AI, IoT, and manufacturing — building technology
+                        that transforms how industries operate, produce, and innovate.
+                    </p>
+                    <div class="info-grid">
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                            <h4><i class="fas fa-graduation-cap"></i> Education</h4>
                             <ul>
-                                <li><strong>MCA</strong> - IGNOU (Ongoing, 2024-2026)</li>
-                                <li><strong>BSc Computer Science</strong> - University of Kerala (2024)</li>
-                                <li><strong>Higher Secondary</strong> - BJSM Madathil VHSS, Thazhava (2021)</li>
+                                <li><strong>MCA</strong> — IGNOU (2024–2026)</li>
+                                <li><strong>BSc Computer Science</strong> — University of Kerala (2024)</li>
+                                <li><strong>Higher Secondary</strong> — BJSM Madathil VHSS, Thazhava (2021)</li>
                             </ul>
                         </div>
-                        <div class="lang-info">
-                            <h3>Languages</h3>
+                        <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                            <h4><i class="fas fa-language"></i> Languages</h4>
                             <ul>
-                                <li><strong>Malayalam</strong> - Native</li>
-                                <li><strong>English</strong> - Fluent</li>
-                                <li><strong>Tamil</strong> - Basic</li>
+                                <li><strong>Malayalam</strong> — Native</li>
+                                <li><strong>English</strong> — Fluent</li>
+                                <li><strong>Tamil</strong> — Basic</li>
                             </ul>
                         </div>
                     </div>
@@ -109,149 +169,539 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- ========== EXPERIENCE TIMELINE ========== -->
+    <section id="experience">
         <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>AI & Emerging Tech</h3>
-                    <p>Prompt Engineering, Deep Learning (DEA-RNN), IoT, TensorFlow, Keras, Big Data Analytics.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <p>Python, Java, C, PHP.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <p>HTML, CSS, JavaScript, Flask, XML.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Others</h3>
-                    <p>MySQL, MS Office, Canva, Alight Motion.</p>
+            <div class="section-header">
+                <span class="section-tag">// Career Log</span>
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">Professional journey in Industry 4.0 and smart manufacturing</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">FEBRUARY 2026 — PRESENT</div>
+                        <h3>Industry 4.0 Specialist</h3>
+                        <div class="timeline-company">L&T Electronic Products & Systems</div>
+                        <ul>
+                            <li>Leading MES implementation for manufacturing digitization across electronics
+                                production lines</li>
+                            <li>Architecting ERP-to-shop-floor integration for seamless data flow and operational
+                                visibility</li>
+                            <li>Developing real-time production tracking dashboards for quality traceability and process
+                                optimization</li>
+                            <li>Implementing automated quality management systems for enterprise electronics
+                                workflows</li>
+                            <li>Driving Industry 4.0 transformation initiatives — connecting machines, systems, and
+                                people</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- ========== INDUSTRY 4.0 DASHBOARD ========== -->
+    <section id="dashboard">
         <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- LocoMart -->
-                <div class="project-card">
-                    <h3>LocoMart</h3>
-                    <p>Revolutionizing local commerce by empowering rural businesses through a dedicated E-commerce
-                        platform. The system facilitates swift and secure transactions, allowing local vendors to list
-                        products and reach a wider customer base, boosting local economies by modernizing traditional
-                        trade.</p>
-                    <div class="tags"><span>Python</span><span>Java</span><span>Flask</span><span>XML</span></div>
-                    <a href="https://github.com/ananthu-pm/LocoMart-Smart-Shopping" class="project-link"
-                        target="_blank">View Code</a>
+            <div class="section-header">
+                <span class="section-tag">// Command Dashboard</span>
+                <h2 class="section-title">Industry 4.0 Ecosystem</h2>
+                <p class="section-subtitle">Core domains powering the next industrial revolution</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="dash-icon"><i class="fas fa-industry"></i></div>
+                    <h3>MES</h3>
+                    <p>Manufacturing Execution Systems — bridging planning to production</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> OPERATIONAL</div>
                 </div>
-                <!-- Oie Connect -->
-                <div class="project-card">
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="dash-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Smart Factory</h3>
+                    <p>Connected, intelligent manufacturing environments</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> ACTIVE</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="dash-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI Systems</h3>
+                    <p>Machine learning & deep learning for industrial intelligence</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> LEARNING</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="dash-icon"><i class="fas fa-gears"></i></div>
+                    <h3>Automation</h3>
+                    <p>Workflow & process automation for maximum efficiency</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> RUNNING</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="dash-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>IoT</h3>
+                    <p>Industrial Internet of Things — sensors, connectivity, data</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> CONNECTED</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="dash-icon"><i class="fas fa-cube"></i></div>
+                    <h3>Digital Twin</h3>
+                    <p>Virtual factory modeling for simulation & optimization</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> SYNCING</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="dash-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Analytics</h3>
+                    <p>Data-driven manufacturing insights & predictive intelligence</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> PROCESSING</div>
+                </div>
+                <div class="dash-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="dash-icon"><i class="fas fa-satellite"></i></div>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Live production tracking & quality surveillance systems</p>
+                    <div class="dash-status"><span class="status-dot-sm"></span> LIVE</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TECH STACK ========== -->
+    <section id="tech">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <span class="section-tag">// Technology Core</span>
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-subtitle">Technologies and tools powering intelligent systems</p>
+            </div>
+            <div class="tech-stack-wrapper">
+                <div class="orbit-container" aria-hidden="true">
+                    <div class="orbit-center">TECH<br>CORE</div>
+                    <div class="orbit-ring orbit-ring-1">
+                        <div class="orbit-node ring1-node">Python</div>
+                        <div class="orbit-node ring1-node">Java</div>
+                        <div class="orbit-node ring1-node">JS</div>
+                        <div class="orbit-node ring1-node">SQL</div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <div class="orbit-node ring2-node">Flask</div>
+                        <div class="orbit-node ring2-node">TF</div>
+                        <div class="orbit-node ring2-node">Keras</div>
+                        <div class="orbit-node ring2-node">Ollama</div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-3">
+                        <div class="orbit-node ring3-node">MES</div>
+                        <div class="orbit-node ring3-node">IoT</div>
+                        <div class="orbit-node ring3-node">AI/ML</div>
+                        <div class="orbit-node ring3-node">Git</div>
+                        <div class="orbit-node ring3-node">LLM</div>
+                    </div>
+                </div>
+                <div class="tech-categories">
+                    <div class="tech-cat" data-aos="fade-left" data-aos-delay="100">
+                        <h4>Programming Languages</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="tech-cat" data-aos="fade-left" data-aos-delay="200">
+                        <h4>AI & LLM Ecosystem</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Ollama</span>
+                            <span class="tech-tag">LLM Integration</span>
+                            <span class="tech-tag">Prompt Engineering</span>
+                            <span class="tech-tag">AI Workflows</span>
+                            <span class="tech-tag">Local AI Models</span>
+                        </div>
+                    </div>
+                    <div class="tech-cat" data-aos="fade-left" data-aos-delay="300">
+                        <h4>Web & Frameworks</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">HTML / CSS</span>
+                            <span class="tech-tag">XML</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="tech-cat" data-aos="fade-left" data-aos-delay="400">
+                        <h4>Industry 4.0 & Tools</h4>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MES</span>
+                            <span class="tech-tag">IoT</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">ERP Integration</span>
+                            <span class="tech-tag">Big Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <span class="section-tag">// Mission Archive</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Engineering solutions that solve real-world challenges</p>
+            </div>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="social">Social Impact</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-status"><span class="status-dot-sm"></span> DEPLOYED</div>
+                    <div class="project-category">E-Commerce / Web Platform</div>
+                    <h3>LocoMart</h3>
+                    <p>
+                        A local commerce revolution — empowering rural businesses through a dedicated e-commerce
+                        platform. Facilitates swift, secure transactions enabling local vendors to reach wider
+                        customer bases, modernizing traditional trade and boosting local economies through
+                        digital transformation.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span><span>Java</span><span>Flask</span><span>XML</span>
+                    </div>
+                    <a href="https://github.com/ananthu-pm/LocoMart-Smart-Shopping" class="project-link"
+                        target="_blank" rel="noopener noreferrer">
+                        View Source <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-card" data-category="ai" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-status"><span class="status-dot-sm"></span> DEPLOYED</div>
+                    <div class="project-category">AI / Deep Learning</div>
                     <h3>Oie Connect</h3>
-                    <p>Introducing DEA-RNN, a hybrid deep learning model for Social Media safety. Built to identify
-                        cyberbullying using Deep Evolutionary Algorithm - Recurrent Neural Network approach, the project
-                        enhances detection accuracy for toxic behavior, providing a safer digital interaction
-                        environment.</p>
-                    <div class="tags"><span>Python</span><span>TensorFlow</span><span>Keras</span><span>Flask</span>
+                    <p>
+                        Pioneering social media safety with DEA-RNN — a hybrid deep learning model combining
+                        Deep Evolutionary Algorithms with Recurrent Neural Networks. Accurately identifies
+                        cyberbullying patterns and toxic behavior, providing a safer digital interaction
+                        environment through intelligent content analysis.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span><span>TensorFlow</span><span>Keras</span><span>Flask</span>
                     </div>
                     <a href="https://github.com/ananthu-pm/Cyber-Bullying-Detection" class="project-link"
-                        target="_blank">View Code</a>
+                        target="_blank" rel="noopener noreferrer">
+                        View Source <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <!-- OVIA -->
-                <div class="project-card">
+                <div class="project-card" data-category="social" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-status"><span class="status-dot-sm"></span> DEPLOYED</div>
+                    <div class="project-category">Healthcare / SDG:3</div>
                     <h3>OVIA</h3>
-                    <p>Streamlining Maternal Care through an E-Health communication bridge. Designed for rural areas to
-                        improve maternal health outcomes (SDG:3), enabling risk-based communication between ASHA workers
-                        and PHC Doctors for timely medical intervention and monitoring.</p>
-                    <div class="tags"><span>Python</span><span>Flask</span><span>Healthcare</span></div>
-                    <a href="https://github.com/ananthu-pm/OVIA-Health-Platform" class="project-link"
-                        target="_blank">View Code</a>
-                </div>
-                <!-- SAGE -->
-                <div class="project-card">
-                    <h3>SAGE</h3>
-                    <p>Revolutionizing scholarship accessibility for Indian students. Featuring tailored portals for
-                        Universities, Schools, and Students, the system ensures quality education by simplifying
-                        applications and providing direct communication channels to ensure opportunities aren't missed.
+                    <p>
+                        Streamlining maternal healthcare through an E-Health communication bridge. Designed for
+                        rural areas to improve maternal health outcomes (UN SDG:3), enabling risk-based
+                        communication between ASHA workers and PHC Doctors for timely medical intervention,
+                        monitoring, and life-saving care coordination.
                     </p>
-                    <div class="tags"><span>Python</span><span>Java</span><span>Android</span><span>Flask</span></div>
+                    <div class="tags">
+                        <span>Python</span><span>Flask</span><span>Healthcare</span>
+                    </div>
+                    <a href="https://github.com/ananthu-pm/OVIA-Health-Platform" class="project-link" target="_blank"
+                        rel="noopener noreferrer">
+                        View Source <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-card" data-category="web social" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-status"><span class="status-dot-sm"></span> DEPLOYED</div>
+                    <div class="project-category">EdTech / Social Impact</div>
+                    <h3>SAGE</h3>
+                    <p>
+                        Revolutionizing scholarship accessibility for Indian students. Features tailored portals
+                        for Universities, Schools, and Students — simplifying applications, providing direct
+                        communication channels, and ensuring quality education opportunities are never missed
+                        through intelligent matching and notification systems.
+                    </p>
+                    <div class="tags">
+                        <span>Python</span><span>Java</span><span>Android</span><span>Flask</span>
+                    </div>
                     <a href="https://github.com/ananthu-pm/ScholarshipManagementSystem" class="project-link"
-                        target="_blank">View Code</a>
+                        target="_blank" rel="noopener noreferrer">
+                        View Source <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- ========== SERVICES / EXPERTISE ========== -->
+    <section id="services">
         <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Services</h2>
+            <div class="section-header">
+                <span class="section-tag">// Capability Matrix</span>
+                <h2 class="section-title">Expertise Domains</h2>
+                <p class="section-subtitle">Specialized knowledge across engineering and technology</p>
+            </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Building responsive, modern web applications using Flask and classic web tech.</p>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Industry 4.0 Solutions</h3>
+                    <p>MES implementation, smart manufacturing strategies, and end-to-end digital transformation of
+                        production systems.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>AI Solutions</h3>
-                    <p>Implementing deep learning models and prompt engineering strategies.</p>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Deep learning models, LLM integration with Ollama, prompt engineering, and predictive analytics
+                        for industrial applications.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="service-icon"><i class="fas fa-database"></i></div>
+                    <h3>Manufacturing Digitization</h3>
+                    <p>ERP-to-shop-floor integration, data pipeline architecture, and real-time production visibility
+                        systems.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Full-stack web solutions using Python, Flask, and modern web technologies for enterprise and
+                        consumer applications.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>IoT & Automation</h3>
+                    <p>Connected sensor systems, industrial automation workflows, and real-time monitoring
+                        infrastructure.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Manufacturing Analytics</h3>
+                    <p>Intelligent production analytics, quality traceability systems, and data-driven process
+                        optimization for enterprise manufacturing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- ========== PROFESSIONAL STATS ========== -->
+    <section id="stats" class="stats-section">
         <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-header">
+                <span class="section-tag">// System Metrics</span>
+                <h2 class="section-title">Impact Dashboard</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number" data-target="20">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Technologies Mastered</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number" data-target="8">0</div>
+                    <div class="stat-label">AI Solutions Built</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number" data-target="4">0</div>
+                    <div class="stat-label">Industry Domains</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Continuous Learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FUTURE VISION ========== -->
+    <section id="vision">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <span class="section-tag">// Forward Vector</span>
+                <h2 class="section-title">Future Vision</h2>
+            </div>
+            <div class="vision-layout">
+                <div class="vision-text" data-aos="fade-right">
+                    <h3>Building the Factories of Tomorrow</h3>
+                    <p>
+                        I envision a future where every manufacturing floor is an intelligent ecosystem —
+                        where machines communicate, AI predicts failures before they occur, and human expertise
+                        is amplified by cyber-physical systems. This is not science fiction — it is Industry 5.0.
+                    </p>
+                    <p>
+                        My passion lies at the intersection of artificial intelligence and industrial engineering.
+                        From electronics manufacturing to consumer production, I believe smart factories will
+                        redefine how nations produce, innovate, and compete on the global stage.
+                    </p>
+                    <div class="vision-pillars">
+                        <div class="vision-pillar" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-robot"></i>
+                            <h4>AI-Driven Manufacturing</h4>
+                            <p>Predictive quality & autonomous optimization</p>
+                        </div>
+                        <div class="vision-pillar" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-people-arrows"></i>
+                            <h4>Human-Machine Collaboration</h4>
+                            <p>Augmenting human expertise with AI</p>
+                        </div>
+                        <div class="vision-pillar" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Industry 5.0</h4>
+                            <p>Sustainable, human-centric manufacturing</p>
+                        </div>
+                        <div class="vision-pillar" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Intelligent Production</h4>
+                            <p>Next-gen smart manufacturing systems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vision-graphic" data-aos="fade-left">
+                    <div class="hex-grid">
+                        <div class="hex-item"><i class="fas fa-brain"></i><span>AI</span></div>
+                        <div class="hex-item"><i class="fas fa-industry"></i><span>MFG</span></div>
+                        <div class="hex-item"><i class="fas fa-network-wired"></i><span>IoT</span></div>
+                        <div class="hex-item"><i class="fas fa-microchip"></i><span>EDGE</span></div>
+                        <div class="hex-item"><i class="fas fa-cube"></i><span>TWIN</span></div>
+                        <div class="hex-item"><i class="fas fa-chart-line"></i><span>DATA</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CERTIFICATIONS / LEARNING ROADMAP ========== -->
+    <section id="certifications">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <span class="section-tag">// Learning Trajectory</span>
+                <h2 class="section-title">Knowledge Roadmap</h2>
+                <p class="section-subtitle">Continuous evolution through learning and specialization</p>
+            </div>
+            <div class="roadmap">
+                <div class="roadmap-track">
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="100">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">CS Foundation</div>
+                        <div class="roadmap-sub">Algorithms & Systems</div>
+                    </div>
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="200">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">Web Technologies</div>
+                        <div class="roadmap-sub">Full-Stack Dev</div>
+                    </div>
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="300">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">AI & Deep Learning</div>
+                        <div class="roadmap-sub">Neural Networks & LLMs</div>
+                    </div>
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="400">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">Industry 4.0 & MES</div>
+                        <div class="roadmap-sub">Smart Manufacturing</div>
+                    </div>
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="500">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">Manufacturing Analytics</div>
+                        <div class="roadmap-sub">Enterprise Systems</div>
+                    </div>
+                    <div class="roadmap-point" data-aos="fade-up" data-aos-delay="600">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-label">Industry 5.0</div>
+                        <div class="roadmap-sub">The Future Awaits</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <span class="section-tag">// Open Channel</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to discuss Industry 4.0, AI, or collaboration opportunities</p>
+            </div>
             <div class="contact-content">
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> ananthupm2003@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +91 7306404837</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                <div class="contact-info-card">
+                    <h3>Contact Intel</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ananthupm2003@gmail.com">ananthupm2003@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+917306404837">+91 7306404837</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kerala, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <span>L&T Electronic Products & Systems</span>
+                    </div>
                     <div class="contact-socials">
-                        <a href="https://www.linkedin.com/in/ananthupm/" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/ananthu-pm" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/r._m_.i/" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/ananthupm/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/ananthu-pm" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/r._m_.i/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <form class="contact-form"
                     action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe40-gBCMD2Nr1AXL2Ca59IpaRBWP3edib9Jud4Qd-bVc2haA/formResponse"
-                    method="POST" novalidate>
-                    <input type="text" name="entry.1969004993" placeholder="Your Name" required pattern="[a-zA-Z\s]+">
-                    <input type="email" name="entry.230809009" placeholder="Your Email" required>
-                    <textarea name="entry.977138015" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn" id="submit-btn">Send Message</button>
+                    method="POST" novalidate id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="entry.1969004993" placeholder="Your full name"
+                            required pattern="[a-zA-Z\s]+">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="entry.230809009"
+                            placeholder="your.email@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="entry.977138015"
+                            placeholder="Tell me about your project or idea..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" id="submit-btn">
+                        <i class="fas fa-paper-plane"></i> <span>Transmit Message</span>
+                    </button>
                     <div id="form-warning" class="form-status hidden">
                         <i class="fas fa-exclamation-triangle"></i>
                         <span>Please fill in all required fields.</span>
                     </div>
                     <div id="form-success" class="form-status hidden">
                         <i class="fas fa-check-circle"></i>
-                        <span>Message sent successfully!</span>
+                        <span>Message transmitted successfully!</span>
                     </div>
                     <div id="form-error" class="form-status hidden">
                         <i class="fas fa-exclamation-circle"></i>
-                        <span>Something went wrong. Please try again.</span>
+                        <span>Transmission failed. Please try again.</span>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- ========== FOOTER ========== -->
     <footer>
-        <p>&copy; 2026 Ananthu PM. Designed with <i class="fas fa-heart"></i></p>
+        <div class="footer-content">
+            <div class="footer-brand">Engineered by Ananthu<span>PM</span></div>
+            <p>&copy; 2026 Ananthu PM. Designed with <i class="fas fa-heart"></i> and precision engineering.</p>
+        </div>
     </footer>
 
-    <!-- Funny Warning Overlay -->
+    <!-- ========== FUNNY WARNING OVERLAY ========== -->
     <div id="funny-overlay" class="funny-overlay hidden">
         <div class="funny-content">
             <div class="fox-icon">🦊</div>
@@ -259,7 +709,7 @@
             <ul class="funny-list">
                 <li><strong>Name:</strong> Use only letters (no numbers or weird symbols!).</li>
                 <li><strong>Email:</strong> Provide a legit email address that actually works.</li>
-                <li><strong>Message:</strong> Don't leave it blank; I’m not a mind reader!</li>
+                <li><strong>Message:</strong> Don't leave it blank; I'm not a mind reader!</li>
             </ul>
             <div class="dismiss-hint">Press any key or click to dismiss</div>
         </div>
@@ -269,7 +719,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- ========== SCRIPTS ========== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
