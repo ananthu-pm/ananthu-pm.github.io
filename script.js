@@ -211,7 +211,7 @@
     if (typingTarget) {
         const titles = [
             'Industry 4.0 Specialist',
-            'MES Engineer',
+            'MES Specialist',
             'AI & Smart Manufacturing Enthusiast',
             'Digital Transformation Architect',
             'Intelligent Production Specialist'
